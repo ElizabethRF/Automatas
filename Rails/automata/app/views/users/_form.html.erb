@@ -11,35 +11,50 @@
     </div>
   <% end %>
 
+
+
+  <div>
+    <b><%= form.label :Tipo_de_usuario %></b>
+    
+    
+    <%= form.label(:tipo_administrador, "Administrador") %>
+      <%= form.radio_button(:tipo, "administrador") %>
+   
+    <%= form.label(:tipo_jefe, "Jefe de departamento") %>
+       <%= form.radio_button(:tipo, "jefe de departamento") %>
+        
+    <%= form.label(:tipo_medico, "Médico") %>
+      <%= form.radio_button(:tipo, "médico") %>
+        
+    <%= form.label(:tipo_enfermera, "Enfermera") %>
+      <%= form.radio_button(:tipo, "enfermera") %>
+  </div>  
+
   <div class="field">
-    <%= form.label :Nombre %>
+    <b><%= form.label :Nombre %></b>
     <%= form.text_field :name, id: :user_name %>
   </div>
 
   <div class="field">
-    <%= form.label :Apellido_paterno %>
+    <b><%= form.label :Apellido_paterno %></b>
     <%= form.text_field :lastname1, id: :user_lastname1 %>
   </div>
 
   <div class="field">
-    <%= form.label :Apellido_materno %>
+    <b><%= form.label :Apellido_materno %></b>
     <%= form.text_field :lastname2, id: :user_lastname2 %>
   </div>
 
   <div class="field">
-    <%= form.label :Correo %>
+    <b><%= form.label :Correo %></b>
     <%= form.text_field :email, id: :user_email %>
   </div>
 
   <div class="field">
-    <%= form.label :Contraseña %>
-    <%= form.text_field :password_digest, id: :user_password_digest %>
+    <b><%= form.label :Contraseña %></b>
+    <%= form.password_field :password %>
   </div>
 
-  <div class="field">
-    <%= form.label :Tipo_de_usuario %>
-    <%= form.text_field :tipo, id: :user_tipo %>
-  </div>
 
   <div class="actions">
     <%= form.submit "Crear usuario" %>
