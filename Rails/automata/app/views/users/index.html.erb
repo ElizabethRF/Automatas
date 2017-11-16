@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Usuarios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido Paterno</th>
+      <th>Apellido Materno</th>
+      <th>Correo</th>
+      <th>Contraseña</th>
+      <th>Tipo</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.lastname1 %></td>
+        <td><%= user.lastname2 %></td>
+        <td><%= user.email %></td>
+        <td><%= user.password_digest %></td>
+        <td><%= user.tipo %></td>
+        <td><%= link_to 'Ver', user %></td>
+        <td><%= link_to 'Editar', edit_user_path(user) %></td>
+        <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: '¿Estás seguro? Esta acción no se puede deshacer' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Usuario', new_user_path %>
