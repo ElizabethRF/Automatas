@@ -4,3 +4,4 @@ $(function () {
         $(this).closest('tr').remove();
     });
 });
+
