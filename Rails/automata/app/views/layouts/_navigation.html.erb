@@ -1,0 +1,41 @@
+
+<header class="header" role="banner">
+  <div class="nav-wrap">
+    <nav class="main-nav navbar" >
+        <div role="navigation"><h1 class="logo">
+    <span><%=link_to image_tag("incifo.png"), root_path%></span>
+  </h1>
+      <ul class="unstyled list-hover-slide">
+        
+        <%if logged_in? %>
+          
+              <% if current_user.area == "relacionesPublicas" || current_user.admin || current_user.area =="direccion"%>
+                <li><%= link_to 'Ingreso', new_ingreso_path %></li>
+              <%end %>
+          <% if current_user.area == "necropsia" || current_user.admin || current_user.area =="direccion"%>
+              <li><%= link_to 'Necropsia', studies_path %></li>
+          <%end%>
+          <% if current_user.area == "relacionesPublicas" || current_user.admin || current_user.area =="direccion"%>
+            <li><%= link_to 'Egresos', egresos_path %></li>
+          <%end %>
+          
+            <li><%= link_to 'Expedientes', expedientes_path %></li>
+          <% if current_user.admin || current_user.area =="direccion"%>
+            <li id="bottom"><%= link_to 'Usuarios', users_path%></li>
+          <%end%>
+            <li id="bottom"><%= link_to 'Mi cuenta', user_path(current_user)%></li>
+          <li id="bottom"><%= link_to 'Cerrar Sesión',logout_path, method: :delete%></li>
+        
+          <%else %>
+          <li><%= link_to 'Iniciar sesión', login_path %></li>
+          
+          
+        <%end%>
+      </ul>
+       </div> 
+    </nav>
+  
+</div>
+    
+  
+</header>
