@@ -13,9 +13,14 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<%if current_user.tipo == 'Administrador' || current_user.tipo == 'Jefe de departamento'%>
-				<li><%= link_to "Usuarios", users_path, id:"texto" %></li>
+				<%if current_user.tipo == 'Administrador'%>
+					<li><%= link_to "Usuarios", users_path, id:"texto" %></li>
 				<%end%>
+				<%if current_user.tipo == 'Jefe de departamento'%>
+					<li><%= link_to "Usuarios", users_path, id:"texto" %></li>
+					<li><%= link_to "Generar Reporte", reportes_path, id:"texto" %></li>
+				<%end%>
+
 				<%if (current_user.tipo == 'Medico' || current_user.tipo == 'Enfermera')%>
 					<li><%= link_to "Pacientes", pacientes_path, id:"texto" %></li>
 					<%end%>
