@@ -2,7 +2,7 @@
 
 <h1>Usuarios</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Nombre</th>
@@ -24,9 +24,9 @@
         <td><%= user.email %></td>
         <td><%= user.password%></td>
         <td><%= user.tipo %></td>
-        <td><%= link_to 'Ver', user %></td>
-        <td><%= link_to 'Editar', edit_user_path(user) %></td>
-        <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: '¿Estás seguro? Esta acción no se puede deshacer' } %></td>
+        <td><%= link_to 'Ver', user,class: 'btn btn-success btn-xs texto' %></td>
+        <td><%= link_to 'Editar', edit_user_path(user),class: 'btn btn-warning btn-xs' %></td>
+        <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: '¿Estás seguro? Esta acción no se puede deshacer' },class: 'btn btn-danger btn-xs' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'Nuevo Usuario', new_user_path %>
+<%= link_to 'Nuevo Usuario', new_user_path,class: 'btn btn-info' %>

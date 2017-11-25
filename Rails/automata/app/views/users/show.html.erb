@@ -21,14 +21,9 @@
 </p>
 
 <p>
-  <strong>Contraseña</strong>
-  <%= @user.password %>
-</p>
-
-<p>
   <strong>Tipo:</strong>
   <%= @user.tipo %>
 </p>
 
-<%= link_to 'Editar', edit_user_path(@user) %> |
-<%= link_to 'Atras', users_path %>
+<%= link_to 'Editar', edit_user_path(@user),class: 'btn btn-warning btn-xs' %> |
+<%= link_to 'Atras', users_path,class: 'btn btn-default btn-xs' %>

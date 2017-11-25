@@ -1,4 +1,3 @@
-<%= form_with(model: user, local: true) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -11,47 +10,80 @@
     </div>
   <% end %>
 
+<div class="mx-auto">
+    <div class="container">
+    <%= form_with(model: user, local: true) do |form| %>
+    <div class="form-group row">
+
+      <div class=" col-md-2">
+      <%= form.label :Tipo_de_usuario%>
+      </div>
+      <div class="col-md-6">
+        <%= form.select :tipo, ['Administrador', 'Jefe de departamento','Medico','Enfermera'],class: "form-control"%>
+      </div>
+      
+      </div>
+      <div class="form-group row">
+        <div class="control-label col-md-2">
+        <%= form.label :Nombre %>
+        </div>
+      <div class="col-md-6">
+          <%= form.text_field :name, id: :user_name, class: "form-control" %>      </div>
+      </div>
+     
+
+      <div class="form-group row">
+        <div class="control-label col-md-2">
+        <%= form.label :Apellido_paterno %>
+        </div>
+      <div class="col-md-6">
+        <%= form.text_field :lastname1, class: "form-control", autocomplete: "off" %>
+      </div>
+     
+
+      </div>
+      <div class="form-group row">
+        <div class="control-label col-md-2">
+        <%= form.label :Apellido_materno%>
+        </div>
+      <div class="col-md-6">
+        <%= form.text_field :lastname2, class: "form-control", autocomplete: "off" %>
+      </div>
+     
+
+      </div>
+      <div class="form-group row">
+        <div class="control-label col-md-2">
+        <%= form.label :Correo %>
+        </div>
+      <div class="col-md-6">
+        <%= form.text_field :email, class: "form-control", autocomplete: "off" %>
+      </div>
+       
+      </div>
+      <div class="form-group row">
+        <div class="control-label col-md-2">
+        <%= form.label :Contraseña %>
+        </div>
+      <div class="col-md-6">
+        <%= form.password_field :password, class: "form-control", autocomplete: "off" %>
+      </div>
+      <br>
 
 
-  <div>
+      </div>
+      <div class="form-group">
+      <div class="text-center col-md-12">
+          <%= form.submit "Guardar", class: 'btn btn-info' %>
+      </div>
+      </div>
+      <% end %>
 
 
-    
+    </div>
+</div>
 
 
 
 
-    <b><%= form.label :Tipo_de_usuario %></b>
-    <%= form.select :tipo, ['Administrador', 'Jefe de departamento','Medico','Enfermera']%>
-  </div>  
 
-  <div class="field">
-    <b><%= form.label :Nombre %></b>
-    <%= form.text_field :name, id: :user_name %>
-  </div>
-
-  <div class="field">
-    <b><%= form.label :Apellido_paterno %></b>
-    <%= form.text_field :lastname1, id: :user_lastname1 %>
-  </div>
-
-  <div class="field">
-    <b><%= form.label :Apellido_materno %></b>
-    <%= form.text_field :lastname2, id: :user_lastname2 %>
-  </div>
-
-  <div class="field">
-    <b><%= form.label :Correo %></b>
-    <%= form.text_field :email, id: :user_email %>
-  </div>
-
-  <div class="field">
-    <b><%= form.label :Contraseña %></b>
-    <%= form.password_field :password %>
-  </div>
-
-
-  <div class="actions">
-    <%= form.submit "Crear usuario" %>
-  </div>
-<% end %>

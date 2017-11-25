@@ -3,51 +3,28 @@
 <div class="mx-auto">
     <div class="container">
 		<%= form_for(:session, :html => {class: "form-horizontal", role: "form"}, url: login_path) do |f| %>
-
 		<div class="form-group">
-
 			<div class="control-label col-sm-4">
-
 			<%= f.label :correo %>
-
 			</div>
-
 			<div class="col-sm-4">
-
 			<%= f.email_field :email, class: "form-control", placeholder: "usuario@ejemplo.com", autofocus: true %>
-
 			</div>
-
 			</div>
-
 			<div class="form-group  center-block">
-
 			<div class="control-label col-sm-4">
-
 			<%= f.label :contraseña %>
-
 			</div>
-
 			<div class="col-sm-4">
-
 			<%= f.password_field :password, class: "form-control", autocomplete: "off" %>
-
 			</div>
-
 			</div>
-
 			<div class="form-group">
-
 			<div class="text-center">
-
 			    <%= f.submit "Iniciar Sesión", class: 'btn btn-info' %>
-
 			</div>
-
 			</div>
-
 			<% end %>
-
         <small class="form-text text-muted text-center center-block"><%= link_to "¿Olvidaste tu contraseña?", users_path %></small>
 
 

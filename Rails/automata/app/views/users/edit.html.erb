@@ -1,8 +1,12 @@
 <h1 align="center">Editar usuario</h1>
+<br>
+<div class="container-fluid" style="text-align: center;">
+	<%= render 'form', user: @user %>
+</div>
+<br>
+<div align="center">
+	<%= link_to 'Atrás', users_path,class: 'btn btn-default btn-xs' %>
+</div>
 
-<%= render 'form', user: @user %>
-
-<%= link_to 'Ver', @user,class: 'btn btn-info'%> |
-<%= link_to 'Atras', users_path %>
 
 
