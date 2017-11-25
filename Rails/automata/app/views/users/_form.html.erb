@@ -14,20 +14,15 @@
 
 
   <div>
+
+
+    
+
+
+
+
     <b><%= form.label :Tipo_de_usuario %></b>
-    
-    
-    <%= form.label(:tipo_administrador, "Administrador") %>
-      <%= form.radio_button(:tipo, "administrador") %>
-   
-    <%= form.label(:tipo_jefe, "Jefe de departamento") %>
-       <%= form.radio_button(:tipo, "jefe de departamento") %>
-        
-    <%= form.label(:tipo_medico, "Médico") %>
-      <%= form.radio_button(:tipo, "médico") %>
-        
-    <%= form.label(:tipo_enfermera, "Enfermera") %>
-      <%= form.radio_button(:tipo, "enfermera") %>
+    <%= form.select :tipo, ['Administrador', 'Jefe de departamento','Medico','Enfermera']%>
   </div>  
 
   <div class="field">
