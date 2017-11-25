@@ -16,7 +16,7 @@
     <% @simbols.each do |simbol| %>
       <tr>
         <td><%= simbol.name %></td>
-        <td><%= simbol.picture %></td>
+        <td><%= image_tag simbol.picture.url, size: "50x50" %></td>
         <td><%= simbol.detail %></td>
         <td><%= link_to 'Ver', simbol, class: 'btn btn-success btn-xs' %></td>
         <td><%= link_to 'Editar', edit_simbol_path(simbol), class: 'btn btn-warning btn-xs' %></td>

@@ -19,6 +19,7 @@
 				<%if current_user.tipo == 'Jefe de departamento'%>
 					<li><%= link_to "Usuarios", users_path, id:"texto" %></li>
 					<li><%= link_to "Generar Reporte", reportes_path, id:"texto" %></li>
+					<li><%= link_to "Símbolos", simbols_path, id:"texto" %></li>
 				<%end%>
 
 				<%if (current_user.tipo == 'Medico' || current_user.tipo == 'Enfermera')%>

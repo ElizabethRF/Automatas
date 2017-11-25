@@ -1,5 +1,6 @@
 class SimbolsController < ApplicationController
   before_action :require_user
+  before_action :require_admin 
   before_action :set_simbol, only: [:show, :edit, :update, :destroy]
 
   # GET /simbols
@@ -61,6 +62,12 @@ class SimbolsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def require_admin
+        if logged_in? and !(current_user.tipo == 'Jefe de departamento')  
+            redirect_to root_path
+         end 
+  end 
 
   private
     # Use callbacks to share common setup or constraints between actions.

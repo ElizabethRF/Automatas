@@ -7,7 +7,7 @@
 
 <p>
   <strong>Imágen:</strong>
-  <%= @simbol.picture %>
+  <%= image_tag(@simbol.picture.url, size: "250x250") if @simbol.picture? %>
 </p>
 
 <p>
