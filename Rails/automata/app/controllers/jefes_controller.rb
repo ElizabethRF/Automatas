@@ -1,0 +1,3 @@
+class JefesController < UsersController 
+	
+end 

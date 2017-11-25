@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :require_user
+  before_action :require_admin 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /users
   # GET /users.json
@@ -62,6 +64,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def require_admin
+        if logged_in? and !(current_user.tipo == 'Administrador' or current_user.tipo == 'Jefe de departamento')  
+            redirect_to root_path
+         end 
+  end 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -72,6 +79,9 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :lastname1, :lastname2, :email, :password, :tipo)
     end
+
+    
+    
 end
 
 

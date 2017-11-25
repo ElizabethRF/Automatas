@@ -25,5 +25,6 @@
   <%= @user.tipo %>
 </p>
 
-<%= link_to 'Editar', edit_user_path(@user),class: 'btn btn-warning btn-xs' %> |
-<%= link_to 'Atras', users_path,class: 'btn btn-default btn-xs' %>
+<%= link_to 'Atras', users_path,class: 'btn btn-default btn-xs' %> | <%= link_to 'Editar', edit_user_path(@user),class: 'btn btn-warning btn-xs' %> |
+<%= link_to 'Eliminar', user_path(@user), method: :delete, data: { confirm: '¿Estás seguro? Esta acción no se puede deshacer' },class: 'btn btn-danger btn-xs' %> 
+

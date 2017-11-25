@@ -1,21 +1,14 @@
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<style>
+.right{
+  text-align: right;}
+</style>
+<%= render 'shared/errors', obj: @user %>
 
 <div class="mx-auto">
     <div class="container">
     <%= form_with(model: user, local: true) do |form| %>
     <div class="form-group row">
-
-      <div class=" col-md-2">
+      <div class=" col-md-2 right">
       <%= form.label :Tipo_de_usuario%>
       </div>
       <div class="col-md-6">
@@ -24,7 +17,7 @@
       
       </div>
       <div class="form-group row">
-        <div class="control-label col-md-2">
+        <div class="control-label col-md-2 right">
         <%= form.label :Nombre %>
         </div>
       <div class="col-md-6">
@@ -33,7 +26,7 @@
      
 
       <div class="form-group row">
-        <div class="control-label col-md-2">
+        <div class="control-label col-md-2 right">
         <%= form.label :Apellido_paterno %>
         </div>
       <div class="col-md-6">
@@ -43,7 +36,7 @@
 
       </div>
       <div class="form-group row">
-        <div class="control-label col-md-2">
+        <div class="control-label col-md-2 right">
         <%= form.label :Apellido_materno%>
         </div>
       <div class="col-md-6">
@@ -53,7 +46,7 @@
 
       </div>
       <div class="form-group row">
-        <div class="control-label col-md-2">
+        <div class="control-label col-md-2 right">
         <%= form.label :Correo %>
         </div>
       <div class="col-md-6">
@@ -62,7 +55,7 @@
        
       </div>
       <div class="form-group row">
-        <div class="control-label col-md-2">
+        <div class="control-label col-md-2 right">
         <%= form.label :Contraseña %>
         </div>
       <div class="col-md-6">
