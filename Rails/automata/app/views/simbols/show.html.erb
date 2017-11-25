@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @simbol.name %>
+</p>
+
+<p>
+  <strong>Imágen:</strong>
+  <%= @simbol.picture %>
+</p>
+
+<p>
+  <strong>Detalles:</strong>
+  <%= @simbol.detail %>
+</p>
+
+<%= link_to 'Editar', edit_simbol_path(@simbol) , class: 'btn btn-warning btn-xs'%> |
+<%= link_to 'Atrás', simbols_path , class: 'btn btn-default btn-xs'%>

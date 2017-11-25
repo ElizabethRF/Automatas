@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :simbols
   resources :pacientes
   root'pages#home'
   get 'login', to: 'sessions#new'
