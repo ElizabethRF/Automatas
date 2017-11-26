@@ -3,6 +3,8 @@
   text-align: right;}
 </style>
 
+<%id_simbolos = []%>
+<%cont = 3%>
 <%= render 'shared/errors', obj: @interaction %>
 <%nombres =[]%>
 <%cont = 0%>
@@ -20,12 +22,15 @@
       </div>
     </div>
 
-
       <% @simbolos.each do |s| %>
-        <%= image_tag s.picture.url, size: "100x100" %>  
-        <%= form.radio_button(:simbol_id, s.id)  %>
+        <button id="3" onclick="myFunction(this.value)" value='<%= s.id %>'><%=image_tag s.picture.url, size: "200x200" %><% form.text_area :simbol_id,id: "holi", value: s.id %>
+          
+        </button>  
+        <%cont = cont +1%>
+        <%#= form.radio_button(:simbol_id, s.id)  %>
       <%end%>
       
+      <%= form.text_area :simbol_id, id: :interaction_simbol %>
       <%#= form.select(:simbol_id, Simbol.all.collect {|u| [u.picture, u.id]}) %>
       <%#= form.radio_button(:simbol_id, Simbol.all.collect {|u| [u.picture, u.id]}) %>
 
@@ -46,3 +51,14 @@
     <% end %>
   </div>
 </div>
+
+<script>
+function myFunction(x) {
+
+    document.getElementById("interaction_simbol").innerHTML = x;
+  
+}
+
+
+
+</script>

@@ -23,6 +23,7 @@ class InteractionsController < ApplicationController
 
   # GET /interactions/1/edit
   def edit
+    @simbolos = Simbol.all
   end
 
   # POST /interactions
@@ -32,6 +33,7 @@ class InteractionsController < ApplicationController
 
     respond_to do |format|
       @interaction.user = current_user
+      @simbolos = Simbol.all
       if @interaction.save
         format.html { redirect_to @interaction, notice: 'Interaction was successfully created.' }
         format.json { render :show, status: :created, location: @interaction }
@@ -45,6 +47,7 @@ class InteractionsController < ApplicationController
   # PATCH/PUT /interactions/1
   # PATCH/PUT /interactions/1.json
   def update
+    @simbolos = Simbol.all
     respond_to do |format|
       if @interaction.update(interaction_params)
         format.html { redirect_to @interaction, notice: 'Interaction was successfully updated.' }
