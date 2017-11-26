@@ -39,6 +39,7 @@
   <strong>Fecha de nacimiento:</strong>
   <%= @paciente.fechaDeNacimiento %>
 </p>
+
 <%if logged_in? and current_user.tipo == "Medico" %>
 <%= link_to 'Editar', edit_paciente_path(@paciente),class: 'btn btn-warning btn-xs' %> |<%end%>
 <%= link_to 'Atrás', pacientes_path ,class: 'btn btn-default btn-xs'%> <%if logged_in? and current_user.tipo == "Medico" %> | <%= link_to 'Eliminar', paciente_path(@paciente), method: :delete, data: { confirm: '¿Estás seguro? Esta acción no se puede deshacer' },class: 'btn btn-danger btn-xs' %> <%end%>

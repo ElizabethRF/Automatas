@@ -2,6 +2,7 @@
 
 <h1>Pacientes</h1>
 
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -30,10 +31,15 @@
         <td><%= paciente.fechaDeNacimiento %></td>
         <td><%= link_to 'Ver', paciente ,class: 'btn btn-success btn-xs' %></td>
         <%if logged_in? and current_user.tipo == "Medico" %>
+        <td> 
+        <%= link_to "Reporte", paciente_url(paciente, format: :pdf), class: 'btn btn-info btn-xs' %>
+        </td>
         <td><%= link_to 'Editar', edit_paciente_path(paciente), class: 'btn btn-warning btn-xs' %></td>
         <td><%= link_to 'Eliminar', paciente, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-danger btn-xs' %></td>
         <%end%>
+
       </tr>
+
     <% end %>
   </tbody>
 </table>

@@ -29,6 +29,10 @@ class PacientesController < ApplicationController
   def edit
   end
 
+  def set_paciente
+      @paciente = current_user.pacientes.find(params[:id])
+    end
+
   # POST /pacientes
   # POST /pacientes.json
   def create
@@ -70,7 +74,7 @@ class PacientesController < ApplicationController
   end
 
   def require_tipo_usuario
-        if logged_in? and !(current_user.tipo == 'Medico' or current_user.tipo == 'Enfermera')  
+        if logged_in? and !(current_user.tipo == 'Jefe de departamento' or current_user.tipo == 'Medico' or current_user.tipo == 'Enfermera')  
             redirect_to root_path
          end 
   end 
