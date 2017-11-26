@@ -11,19 +11,23 @@
       <%= form_with(model: interaction, local: true) do |form| %>
 
 
- <div class="form-group row">
+    <div class="form-group row">
       <div class=" col-md-2 right">
         <%= form.label :paciente_id %>
         </div>
       <div class="col-md-6">
         <%= form.select(:paciente_id, Paciente.all.collect {|u| [u.name + " " +u.lastname1 + " "+u.lastname2 , u.id]}) %>        
       </div>
-      </div>
+    </div>
 
-      <div class="form-group row">
-        <%= form.select(:simbol_id, Simbol.all.collect {|u| [u.name, u.id]}) %>        
-        </div>
+
+      <% @simbolos.each do |s| %>
+        <%= image_tag s.picture.url, size: "100x100" %>  
+        <%= form.radio_button(:simbol_id, s.id)  %>
+      <%end%>
       
+      <%#= form.select(:simbol_id, Simbol.all.collect {|u| [u.picture, u.id]}) %>
+      <%#= form.radio_button(:simbol_id, Simbol.all.collect {|u| [u.picture, u.id]}) %>
 
       <div class="form-group row">
       <div class=" col-md-2 right">
