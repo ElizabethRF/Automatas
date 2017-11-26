@@ -13,6 +13,11 @@ class PacientesController < ApplicationController
   # GET /pacientes/1
   # GET /pacientes/1.json
   def show
+        respond_to do |format|
+          format.html
+          format.json
+          format.pdf {send_data(@paciente.receipt.render, filename: "reporte.pdf", type: "application/pdf", disposition: :inline)}
+      end
   end
 
   # GET /pacientes/new

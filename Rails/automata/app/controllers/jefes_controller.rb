@@ -1,3 +1,4 @@
 class JefesController < UsersController 
-	
+    
+    
 end 
