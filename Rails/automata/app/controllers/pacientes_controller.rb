@@ -8,6 +8,11 @@ class PacientesController < ApplicationController
   # GET /pacientes.json
   def index
     @pacientes = Paciente.all
+       respond_to do |format|
+          format.html
+          format.json
+          format.pdf {render template: 'pacientes/pdf', pdf: 'pacientes'}
+      end
   end
 
   # GET /pacientes/1

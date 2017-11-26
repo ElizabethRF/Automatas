@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+      <%= wicked_pdf_stylesheet_link_tag 'pdf' %>
+      <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta charset="utf-8">
+  </title>
+</head>
+<body>
+    <h1>Reporte semanal</h1>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="width: 120px">Nombre</th>
+                <th style="width: 120px">Apellido</th>
+                <th style="width: 120px">Sexo</th>
+                <th style="width: 120px">Fecha Ingreso</th>
+                <th style="width: 120px">Padecimiento</th>
+                <th style="width: 120px">Interacciones</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <% @pacientes.each do |p| %>
+            <tr>
+                <td><%= p.name%></td>
+                <td><%= p.lastname1%></td>
+                <td><%= p.sexo%></td>
+                <td><%= p.fechaIngreso%></td>
+                <td><%= p.padecimiento%></td>
+                <td></td>
+            </tr>
+            <%end%>
+        </tbody>
+    </table>
+
+</body>
+</html>
