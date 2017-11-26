@@ -1,4 +1,5 @@
 class Simbol < ApplicationRecord
+	has_many :interactions
 	validates :name, presence: true
     validates :picture, presence: true
     mount_uploader :picture, PictureUploader

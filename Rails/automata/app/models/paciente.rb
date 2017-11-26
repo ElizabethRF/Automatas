@@ -1,4 +1,5 @@
 class Paciente < ApplicationRecord
+	has_many :interactions
 	validates :name, presence: true
     validates :lastname1, presence: true
     validates :lastname2, presence: true

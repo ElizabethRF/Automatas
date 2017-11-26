@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :interactions
   resources :simbols
   resources :pacientes
   root'pages#home'

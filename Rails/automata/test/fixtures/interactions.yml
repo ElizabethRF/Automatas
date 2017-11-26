@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  simbol: one
+  user: one
+  paciente: one
+  simbol: one
+  comentarios: MyText
+
+two:
+  simbol: two
+  user: two
+  paciente: two
+  simbol: two
+  comentarios: MyText

@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171125192646) do
+ActiveRecord::Schema.define(version: 20171126043843) do
+
+  create_table "interactions", force: :cascade do |t|
+    t.integer "simbol_id"
+    t.integer "user_id"
+    t.integer "paciente_id"
+    t.text "comentarios"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["paciente_id"], name: "index_interactions_on_paciente_id"
+    t.index ["simbol_id"], name: "index_interactions_on_simbol_id"
+    t.index ["user_id"], name: "index_interactions_on_user_id"
+  end
 
   create_table "pacientes", force: :cascade do |t|
     t.string "name"
