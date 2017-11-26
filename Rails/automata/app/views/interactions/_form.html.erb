@@ -1,6 +1,17 @@
 <style>
 .right{
   text-align: right;}
+
+.hideTA {
+    border: none;
+    overflow: auto;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    color: #fff;
+}
 </style>
 
 <%id_simbolos = []%>
@@ -12,7 +23,6 @@
     <div class="container">
       <%= form_with(model: interaction, local: true) do |form| %>
 
-
     <div class="form-group row">
       <div class=" col-md-2 right">
         <%= form.label :paciente_id %>
@@ -23,17 +33,18 @@
     </div>
 
       <% @simbolos.each do |s| %>
-        <button id="3" onclick="myFunction(this.value)" value='<%= s.id %>'><%=image_tag s.picture.url, size: "200x200" %><% form.text_area :simbol_id,id: "holi", value: s.id %>
+        <button id="3" onclick="myFunction(this.value)" value='<%= s.id %>'><%=image_tag s.picture.url, size: "200x200" %>
           
         </button>  
         <%cont = cont +1%>
         <%#= form.radio_button(:simbol_id, s.id)  %>
       <%end%>
       
-      <%= form.text_area :simbol_id, id: :interaction_simbol %>
+      <%= form.text_area :simbol_id, id: :interaction_simbol, class: "hideTA"%>
       <%#= form.select(:simbol_id, Simbol.all.collect {|u| [u.picture, u.id]}) %>
       <%#= form.radio_button(:simbol_id, Simbol.all.collect {|u| [u.picture, u.id]}) %>
-
+        <div class="form-group row">
+        </div>
       <div class="form-group row">
       <div class=" col-md-2 right">
         <%= form.label :comentarios %>
@@ -52,9 +63,9 @@
   </div>
 </div>
 
+
 <script>
 function myFunction(x) {
-
     document.getElementById("interaction_simbol").innerHTML = x;
   
 }
