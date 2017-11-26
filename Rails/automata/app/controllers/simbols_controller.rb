@@ -13,7 +13,6 @@ class SimbolsController < ApplicationController
   # GET /simbols/1.json
   def show
     @simbols = Simbol.all
-    render :layout => nil 
   end
 
   # GET /simbols/new
