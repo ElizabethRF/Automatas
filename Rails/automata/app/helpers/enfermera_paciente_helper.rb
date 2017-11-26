@@ -1,0 +1,2 @@
+module EnfermeraPacienteHelper
+end

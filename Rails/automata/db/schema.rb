@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171126043843) do
+ActiveRecord::Schema.define(version: 20171126053402) do
+
+  create_table "enfermeras_pacientes", force: :cascade do |t|
+    t.integer "enfermera_id"
+    t.integer "paciente_id"
+    t.index ["enfermera_id"], name: "index_enfermeras_pacientes_on_enfermera_id"
+    t.index ["paciente_id"], name: "index_enfermeras_pacientes_on_paciente_id"
+  end
 
   create_table "interactions", force: :cascade do |t|
     t.integer "simbol_id"
