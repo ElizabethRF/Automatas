@@ -22,9 +22,13 @@
 					<li><%= link_to "Símbolos", simbols_path, id:"texto" %></li>
 				<%end%>
 
-				<%if (current_user.tipo == 'Medico' || current_user.tipo == 'Enfermera')%>
+				<%if current_user.tipo == 'Medico'%>
 					<li><%= link_to "Pacientes", pacientes_path, id:"texto" %></li>
-					<%end%>
+				<%end%>
+				<%if current_user.tipo == 'Enfermera'%>
+					<li><%= link_to "Pacientes", pacientes_path, id:"texto" %></li>
+					<li><%= link_to "Interacciones", interactions_path, id:"texto" %></li>
+				<%end%>
 				
 			</ul>
 			

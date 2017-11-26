@@ -1,23 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Simbol:</strong>
-  <%= @interaction.simbol %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @interaction.user %>
+  <strong>Enfermera:</strong>
+  <%= @interaction.user.name + " " +@interaction.user.lastname1 + " " +@interaction.user.lastname2 %>
 </p>
 
 <p>
   <strong>Paciente:</strong>
-  <%= @interaction.paciente %>
+  <%= @interaction.paciente.name + " " +@interaction.paciente.lastname1 + " " +@interaction.paciente.lastname2 %>
 </p>
 
 <p>
-  <strong>Simbol:</strong>
-  <%= @interaction.simbol %>
+  <strong>Símbolo:</strong>
+  
+  <%= image_tag @interaction.simbol.picture.url, size: "100x100" %>
 </p>
 
 <p>
@@ -25,5 +21,5 @@
   <%= @interaction.comentarios %>
 </p>
 
-<%= link_to 'Edit', edit_interaction_path(@interaction) %> |
-<%= link_to 'Back', interactions_path %>
+<%= link_to 'Editar', edit_interaction_path(@interaction), class: 'btn btn-warning btn-xs'  %> |
+<%= link_to 'Atrás', interactions_path, class: 'btn btn-default btn-xs'%>

@@ -17,7 +17,6 @@ class InteractionsController < ApplicationController
   # GET /interactions/new
   def new
     @interaction = Interaction.new
-    @interaction.user = current_user
     @pacientes = Paciente.all
     @simbolos = Simbol.all
   end
@@ -32,6 +31,7 @@ class InteractionsController < ApplicationController
     @interaction = Interaction.new(interaction_params)
 
     respond_to do |format|
+      @interaction.user = current_user
       if @interaction.save
         format.html { redirect_to @interaction, notice: 'Interaction was successfully created.' }
         format.json { render :show, status: :created, location: @interaction }
