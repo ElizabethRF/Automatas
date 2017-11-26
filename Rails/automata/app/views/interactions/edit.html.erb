@@ -1,6 +1,42 @@
-<h1>Editing Interaction</h1>
+<h1>Agregar comentarios</h1>
+<style>
+.right{
+  text-align: right;}
 
-<%= render 'form', interaction: @interaction %>
+.hideTA {
+    border: none;
+    overflow: auto;
+    outline: none;
 
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    color: #fff;
+}
+</style>
+<div>
+      <%= form_with(model: @interaction, local: true) do |form| %>
+		<p>
+		  <strong>Paciente:</strong>
+		  <%= @interaction.paciente.name + " " +@interaction.paciente.lastname1 + " " +@interaction.paciente.lastname2 %>
+		</p>
+
+		<p>
+		  <strong>Símbolo:</strong>
+		  
+		  <%= image_tag @interaction.simbol.picture.url, size: "100x100" %>
+		</p>
+        <%= form.label :comentarios %>
+      
+      
+        <%= form.text_area :comentarios, id: :interaction_comentarios, class: "form-control" %>
+        <br><br><br>
+
+        <%= form.submit "Guardar", class: 'btn btn-info'%>
+
+    <% end %>
+
+</div>
+<br><br>
 <%= link_to 'Ver', @interaction, class: 'btn btn-success btn-xs'  %> |
 <%= link_to 'Atrás', interactions_path, class: 'btn btn-default btn-xs'  %>

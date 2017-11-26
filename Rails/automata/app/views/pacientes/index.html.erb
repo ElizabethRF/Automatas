@@ -44,6 +44,10 @@
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'Nuevo paciente', new_paciente_path, class: 'btn btn-info' %>
+
+
+<br>
+<%if current_user == 'Medico'%>
+  <%= link_to 'Nuevo paciente', new_paciente_path, class: 'btn btn-info' %>
+<%end%>

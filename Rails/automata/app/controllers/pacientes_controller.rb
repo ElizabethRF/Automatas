@@ -1,6 +1,6 @@
 class PacientesController < ApplicationController
   before_action :require_tipo_usuario
-  before_action :require_medico, only: [:edit,:destroy]
+  before_action :require_medico, only: [:edit,:destroy,:create, :new]
   before_action :require_user
   before_action :set_paciente, only: [:show, :edit, :update, :destroy]
 
@@ -8,6 +8,7 @@ class PacientesController < ApplicationController
   # GET /pacientes.json
   def index
     @pacientes = Paciente.all
+
   end
 
   # GET /pacientes/1
@@ -18,6 +19,7 @@ class PacientesController < ApplicationController
           format.json
           format.pdf {send_data(@paciente.receipt.render, filename: "reporte.pdf", type: "application/pdf", disposition: :inline)}
       end
+      @interactions = Interaction.where("paciente_id = ?", params[:id])
   end
 
   # GET /pacientes/new

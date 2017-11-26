@@ -1,7 +1,7 @@
 class InteractionsController < ApplicationController
   before_action :require_user
   before_action :require_admin 
-  before_action :set_interaction, only: [:show, :edit, :update, :destroy]
+  before_action :set_interaction, only: [:show, :edit, :update]
 
   # GET /interactions
   # GET /interactions.json
@@ -61,13 +61,6 @@ class InteractionsController < ApplicationController
 
   # DELETE /interactions/1
   # DELETE /interactions/1.json
-  def destroy
-    @interaction.destroy
-    respond_to do |format|
-      format.html { redirect_to interactions_url, notice: 'Interaction was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
 
   def require_admin
         if logged_in? and !(current_user.tipo == 'Enfermera')  

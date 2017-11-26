@@ -34,7 +34,8 @@
 
       <% @simbolos.each do |s| %>
         <button id="3" onclick="myFunction(this.value)" value='<%= s.id %>'><%=image_tag s.picture.url, size: "200x200" %>
-          
+          <br>
+          <b><%= s.name%></b>
         </button>  
         <%cont = cont +1%>
         <%#= form.radio_button(:simbol_id, s.id)  %>
@@ -50,7 +51,7 @@
         <%= form.label :comentarios %>
         </div>
       <div class="col-md-6">
-        <%= form.text_area :comentarios, id: :interaction_comentarios %>
+        <%= form.text_area :comentarios, id: :interaction_comentarios, class: "form-control" %>
       </div>
       </div>
 
