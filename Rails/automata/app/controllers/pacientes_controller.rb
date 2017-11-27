@@ -1,6 +1,6 @@
 class PacientesController < ApplicationController
   before_action :require_tipo_usuario
-  before_action :require_medico, only: [:edit,:destroy,:create, :new]
+  before_action :require_medico, only: [:edit,:destroy, :new]
   before_action :require_user
   before_action :set_paciente, only: [:show, :edit, :update, :destroy]
 
@@ -103,6 +103,6 @@ class PacientesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def paciente_params
-      params.require(:paciente).permit(:name, :lastname1, :lastname2, :padecimiento, :fechaIngreso, :sexo, :observaciones, :fechaDeNacimiento)
+      params.require(:paciente).permit(:name, :lastname1, :lastname2, :padecimiento, :fechaIngreso, :sexo, :observaciones, :fechaDeNacimiento, :activo)
     end
 end

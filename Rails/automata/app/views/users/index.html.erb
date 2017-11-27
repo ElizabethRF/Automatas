@@ -36,7 +36,6 @@
 
   <tbody>
     <% @users.each do |user| %>
-      <%if user.tipo != 'Administrador' %>
       <tr>
         <td><%= user.name %></td>
         <td><%= user.lastname1 %></td>
@@ -48,7 +47,6 @@
         <td><%= link_to 'Editar', edit_user_path(user),class: 'btn btn-warning btn-xs' %></td>
         <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: '¿Estás seguro? Esta acción no se puede deshacer' },class: 'btn btn-danger btn-xs' %></td>
       </tr>
-      <%end%>
     <% end %>
   </tbody>
 </table>
