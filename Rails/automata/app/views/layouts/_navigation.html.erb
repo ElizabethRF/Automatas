@@ -29,24 +29,13 @@
 				<%end%>
 				<%if current_user.tipo == 'Jefe de departamento'%>
 					<li><%= link_to "Usuarios", users_path, id:"texto" %></li>
-					<li class="dropdown">
-						<a href="holi.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuarios<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><%= link_to "Usuarios", users_path%></li>
-							<li><%= link_to "Nuevo usuario", new_user_path%></li>
-							<li><a href="#">Something else here</a></li>
-							<li role="separator" class="divider"></li>
-							<li><a href="#">Separated link</a></li>
-						</ul>
-					</li>
-
-
 					<li><%= link_to "Generar Reporte", reportes_path, id:"texto" %></li>
 					<li><%= link_to "Símbolos", simbols_path, id:"texto" %></li>
 				<%end%>
 
 				<%if current_user.tipo == 'Medico'%>
 					<li><%= link_to "Pacientes", pacientes_path, id:"texto" %></li>
+					<li><%= link_to "Asignar Pacientes a Enfermeras", enfermeras_pacientes_path, id:"texto" %></li>
 				<%end%>
 				<%if current_user.tipo == 'Enfermera'%>
 					<li><%= link_to "Pacientes", pacientes_path, id:"texto" %></li>

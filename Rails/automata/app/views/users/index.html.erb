@@ -3,18 +3,9 @@
 
 
 
+<%= link_to 'Nuevo Usuario', new_user_path,class: 'btn btn-info' %>
 <h1>Usuarios</h1>
 
-        
-        <%= form_tag users_path, :method => 'get' do %>
-            <p>
-                <%= text_field_tag :search, params[:search],class:'form-control' %>
-                
-                <%= submit_tag "Search", :name => nil,class:'btn btn-default' %>
-                
-            </p>
-        <% end %>
-  
 
 
 
@@ -27,7 +18,19 @@
       <th>Correo</th>
       <th>Contraseña</th>
       <th>Tipo</th>
+      <th><%= form_tag users_path, :method => 'get' do %>
+            
+                <%= text_field_tag :search, params[:search],class:'form-control' %>
+      
+        </th><th>
+
+                <%= submit_tag "Search", :name => nil,class:'btn btn-default' %>
+                
+            
+        <% end %></th>
+
       <th colspan="4"></th>
+
     </tr>
   </thead>
 

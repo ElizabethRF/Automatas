@@ -13,10 +13,12 @@
 ActiveRecord::Schema.define(version: 20171127060014) do
 
   create_table "enfermeras_pacientes", force: :cascade do |t|
-    t.integer "enfermera_id"
+    t.integer "user_id"
     t.integer "paciente_id"
-    t.index ["enfermera_id"], name: "index_enfermeras_pacientes_on_enfermera_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["paciente_id"], name: "index_enfermeras_pacientes_on_paciente_id"
+    t.index ["user_id"], name: "index_enfermeras_pacientes_on_user_id"
   end
 
   create_table "interactions", force: :cascade do |t|
@@ -43,6 +45,7 @@ ActiveRecord::Schema.define(version: 20171127060014) do
     t.date "fechaDeNacimiento"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "activo"
   end
 
   create_table "simbols", force: :cascade do |t|

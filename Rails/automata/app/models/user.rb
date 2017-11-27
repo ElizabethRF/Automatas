@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 	has_many :interactions
+	has_many :enfermeras_pacientes
+  	has_many :pacientes, through: :enfermeras_pacientes
 	validates :name, presence: true
     validates :lastname1, presence: true
     validates :lastname2, presence: true

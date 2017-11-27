@@ -4,7 +4,7 @@
 </style>
 
 <%= render 'shared/errors', obj: @user %>
-
+<% admin = []%>
 <div class="mx-auto">
     <div class="container">
     <%= form_with(model: user, local: true) do |form| %>
@@ -13,7 +13,12 @@
       <%= form.label :Tipo_de_usuario%>
       </div>
       <div class="col-md-6">
-        <%= form.select :tipo, ['Administrador', 'Jefe de departamento','Medico','Enfermera'],class: "form-control"%>
+        <%if current_user.tipo == "Administrador" %>
+        <% admin=['Administrador', 'Jefe de departamento','Medico','Enfermera']%>
+        <% else%>
+        <% admin=[ 'Jefe de departamento','Medico','Enfermera']%>
+        <%end %>
+        <%= form.select :tipo, admin,class: "form-control"%>
       </div>
       
       </div>

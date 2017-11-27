@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+<%if current_user.tipo == 'Medico'%>
+  <%= link_to 'Nuevo paciente', new_paciente_path, class: 'btn btn-info' %>
+<%end%>
 <h1>Pacientes</h1>
 
 
@@ -14,7 +16,7 @@
       <th>Sexo</th>
       <th>Observaciones</th>
       <th>Fecha de nacimiento</th>
-      <th colspan="3"></th>
+      <th colspan="5"></th>
     </tr>
   </thead>
 
@@ -35,7 +37,7 @@
         <%end%>
         <%if logged_in? and current_user.tipo == "Medico" %>
         <td> 
-        <%= link_to "Reporte", paciente_url(paciente, format: :pdf), class: 'btn btn-info btn-xs' %>
+        <%= link_to "Reporte", paciente_url(paciente, format: :pdf), target: :_blank,class: 'btn btn-info btn-xs' %>
         </td>
         <td><%= link_to 'Editar', edit_paciente_path(paciente), class: 'btn btn-warning btn-xs' %></td>
         <td><%= link_to 'Eliminar', paciente, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-danger btn-xs' %></td>
@@ -51,6 +53,6 @@
 
 
 <br>
-<%if current_user == 'Medico'%>
+<%if current_user.tipo == 'Medico'%>
   <%= link_to 'Nuevo paciente', new_paciente_path, class: 'btn btn-info' %>
 <%end%>
