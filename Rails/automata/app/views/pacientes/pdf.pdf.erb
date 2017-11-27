@@ -30,7 +30,12 @@
                 <td><%= p.sexo%></td>
                 <td><%= p.fechaIngreso%></td>
                 <td><%= p.padecimiento%></td>
-                <td></td>
+                <td>
+                <% p.interactions.each do |i|%>
+                    <%=wicked_pdf_image_tag(i.simbol.picture, size: "20x20")%>
+                    <%= i.simbol.updated_at %> 
+                <%end%>
+                </td>
             </tr>
             <%end%>
         </tbody>

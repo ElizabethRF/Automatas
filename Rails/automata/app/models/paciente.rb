@@ -7,11 +7,9 @@ class Paciente < ApplicationRecord
     validates :fechaIngreso, presence: true
     validates :padecimiento,presence:true
     validates :fechaDeNacimiento, presence: true
-    
-    
-         
+      
     def receipt
-       Receipts::Receipt.new(
+      Receipts::Receipt.new(
       id: id,
       product: "Automata",
       company: {
@@ -27,8 +25,11 @@ class Paciente < ApplicationRecord
         ["Fecha de ingreso",        "#{fechaIngreso}"],
         ["padecimiento",        "#{padecimiento}"],
         ["Fecha de nacimiento",        "#{fechaDeNacimiento}"],
-        ["Simbolos utilizados recientemente",        "SIMBOLOS"],
-        ["Relación Pacientes y símbolos por periodo",        "SIMBOLOS"]
+        ["Simbolos y comentarios utilizados",
+           "#{interactions.map do |i|
+              i.simbol.name + " | " + i.simbol.detail
+          end}\n"
+        ]
       ]
     )
   end 
