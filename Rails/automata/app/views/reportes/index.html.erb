@@ -1,6 +1,6 @@
 <h1>Reportes</h1>
-<p>Generar reporte</p>
+
 
 <%#=link_to "PDF", pacientes_path(:paciente => @paciente.id ,format:"pdf")%>
 <%#= link_to "Download Receipt", paciente_path(@paciente, format: :pdf) %>
-<%=link_to "PDF", pacientes_path(@paciente,format:"pdf")%>
+<%=link_to "Generar reporte en PDF", pacientes_path(@paciente,format:"pdf"), target: :_blank,class: 'btn btn-info'%>

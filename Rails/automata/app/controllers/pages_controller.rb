@@ -1,7 +1,13 @@
 class PagesController < ApplicationController
    def home
-   		if logged_in? and current_user.tipo == 'Enfermera'
+   		if logged_in? 
+   			if current_user.tipo == 'Enfermera'
    				redirect_to new_interaction_path
+   			elsif current_user.tipo == 'Administrador'
+   				redirect_to users_path
+   			end 
+   				
+	
 		end   	
 
    		if !logged_in?

@@ -20,7 +20,6 @@
         <td><%= simbol.detail %></td>
         <td><%= link_to 'Ver', simbol, class: 'btn btn-success btn-xs' %></td>
         <td><%= link_to 'Editar', edit_simbol_path(simbol), class: 'btn btn-warning btn-xs' %></td>
-        <td><%= link_to 'Eliminar', simbol, method: :delete, data: { confirm: '¿Estás seguro? Esta acción no se puede deshacer' }, class: 'btn btn-danger btn-xs' %></td>
       </tr>
     <% end %>
   </tbody>

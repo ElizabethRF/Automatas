@@ -1,7 +1,7 @@
 class SimbolsController < ApplicationController
   before_action :require_user
   before_action :require_admin 
-  before_action :set_simbol, only: [:show, :edit, :update, :destroy]
+  before_action :set_simbol, only: [:show, :edit, :update]
 
   # GET /simbols
   # GET /simbols.json
@@ -56,13 +56,7 @@ class SimbolsController < ApplicationController
 
   # DELETE /simbols/1
   # DELETE /simbols/1.json
-  def destroy
-    @simbol.destroy
-    respond_to do |format|
-      format.html { redirect_to simbols_url, notice: 'Simbol was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+
 
   def require_admin
         if logged_in? and !(current_user.tipo == 'Jefe de departamento')  

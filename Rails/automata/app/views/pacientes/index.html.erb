@@ -30,6 +30,9 @@
         <td><%= paciente.observaciones %></td>
         <td><%= paciente.fechaDeNacimiento %></td>
         <td><%= link_to 'Ver', paciente ,class: 'btn btn-success btn-xs' %></td>
+        <%if logged_in? and current_user.tipo == "Enfermera" %>
+      
+        <%end%>
         <%if logged_in? and current_user.tipo == "Medico" %>
         <td> 
         <%= link_to "Reporte", paciente_url(paciente, format: :pdf), class: 'btn btn-info btn-xs' %>
