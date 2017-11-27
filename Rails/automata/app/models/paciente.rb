@@ -27,10 +27,12 @@ class Paciente < ApplicationRecord
         ["Fecha de ingreso",        "#{fechaIngreso}"],
         ["padecimiento",        "#{padecimiento}"],
         ["Fecha de nacimiento",        "#{fechaDeNacimiento}"],
-        ["Simbolos y comentarios utilizados",
-           "#{interactions.map do |i|
-              i.simbol.name + " | " + i.simbol.detail
-          end}\n"
+        ["Simbolos utilizados recientemente",
+           "#{
+            interactions.map do |i|
+            i.simbol.name
+          end
+          }\n"
         ]
       ]
     )

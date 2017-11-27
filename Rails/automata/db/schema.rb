@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171127061806) do
+ActiveRecord::Schema.define(version: 20171127060014) do
 
   create_table "enfermeras_pacientes", force: :cascade do |t|
     t.integer "user_id"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20171127061806) do
     t.text "comentarios"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "checkbox"
     t.index ["paciente_id"], name: "index_interactions_on_paciente_id"
     t.index ["simbol_id"], name: "index_interactions_on_simbol_id"
     t.index ["user_id"], name: "index_interactions_on_user_id"
