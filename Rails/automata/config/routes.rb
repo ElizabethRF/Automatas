@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :enfermeras_pacientes
+  resources :enfermera_pacientes
   resources :interactions
   resources :simbols
   resources :pacientes

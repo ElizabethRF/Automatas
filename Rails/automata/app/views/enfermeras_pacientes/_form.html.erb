@@ -1,0 +1,19 @@
+<%= render 'shared/errors', obj: @enfermeras_paciente %>
+<%= form_with(model: enfermeras_paciente, local: true) do |form| %>
+
+
+  <div class="field">
+    <%= form.label :Enfermera %>
+    <%= form.select(:user_id, User.where("tipo= 'Enfermera'").collect {|u| [u.name + " " +u.lastname1 + " "+u.lastname2 , u.id]}) %>  
+  </div>
+
+  <div class="field">
+    <%= form.label :Paciente %>
+    <%= form.select(:paciente_id, Paciente.all.collect {|u| [u.name + " " +u.lastname1 + " "+u.lastname2 , u.id]}) %>  
+  </div>
+
+  <div>
+    <%= form.submit "Guardar" , class: 'btn btn-info' %>
+  
+  </div>
+<% end %>

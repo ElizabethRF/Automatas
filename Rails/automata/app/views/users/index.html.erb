@@ -3,18 +3,9 @@
 
 
 
+<%= link_to 'Nuevo Usuario', new_user_path,class: 'btn btn-info' %>
 <h1>Usuarios</h1>
 
-        
-        <%= form_tag users_path, :method => 'get' do %>
-            <p>
-                <%= text_field_tag :search, params[:search],class:'form-control' %>
-                
-                <%= submit_tag "Search", :name => nil,class:'btn btn-default' %>
-                
-            </p>
-        <% end %>
-  
 
 
 
@@ -27,12 +18,25 @@
       <th>Correo</th>
       <th>Contraseña</th>
       <th>Tipo</th>
+      <th><%= form_tag users_path, :method => 'get' do %>
+            
+                <%= text_field_tag :search, params[:search],class:'form-control' %>
+      
+        </th><th>
+
+                <%= submit_tag "Search", :name => nil,class:'btn btn-default' %>
+                
+            
+        <% end %></th>
+
       <th colspan="4"></th>
+
     </tr>
   </thead>
 
   <tbody>
     <% @users.each do |user| %>
+      <%if user.tipo != 'Administrador' %>
       <tr>
         <td><%= user.name %></td>
         <td><%= user.lastname1 %></td>
@@ -44,6 +48,7 @@
         <td><%= link_to 'Editar', edit_user_path(user),class: 'btn btn-warning btn-xs' %></td>
         <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: '¿Estás seguro? Esta acción no se puede deshacer' },class: 'btn btn-danger btn-xs' %></td>
       </tr>
+      <%end%>
     <% end %>
   </tbody>
 </table>

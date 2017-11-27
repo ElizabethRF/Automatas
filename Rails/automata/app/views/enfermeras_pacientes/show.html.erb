@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Enfermera:</strong>
+  <%= @enfermeras_paciente.user.name + " "+ @enfermeras_paciente.user.lastname1 + " "+@enfermeras_paciente.user.lastname2 %>
+</p>
+
+<p>
+  <strong>Paciente:</strong>
+  <%= @enfermeras_paciente.paciente.name + " "+ @enfermeras_paciente.paciente.lastname1 + " "+@enfermeras_paciente.paciente.lastname2  %>
+</p>
+
+<%= link_to 'Editar', edit_enfermeras_paciente_path(@enfermeras_paciente), class: "btn btn-warning btn-xs"  %> |
+<%= link_to 'Atrás', enfermeras_pacientes_path, class: "btn btn-default btn-xs" %>

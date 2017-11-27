@@ -1,0 +1,2 @@
+module EnfermerasPacientesHelper
+end
